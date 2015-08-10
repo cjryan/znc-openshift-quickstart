@@ -1,0 +1,207 @@
+<? AddRow JSLoop HREF=/modfiles/global/webadmin/webadmin.js ?>
+<? INC Header.tmpl ?>
+
+<div class="section">
+    <p>To connect to this network from your IRC client, you can set the server password field as follows: <code><? VAR Username ?>/<? IF Edit ?><? VAR Name ?><? ELSE ?>&lt;network&gt;<? ENDIF ?>:&lt;password&gt;</code> or username field as <code><? VAR Username ?>/<? IF Edit ?><? VAR Name ?><? ELSE ?>&lt;network&gt;<? ENDIF ?></code></p>
+</div>
+
+<form action="<? IF Edit ?>editnetwork<? ELSE ?>addnetwork<? ENDIF ?>" method="post">
+	<? INC _csrf_check.tmpl ?>
+	<div class="section">
+		<input type="hidden" name="submitted" value="1" />
+		<input type="hidden" name="user" value="<? VAR Username ?>" />
+		<? IF Edit ?><input type="hidden" name="network" value="<? VAR Name ?>" /><? ENDIF ?>
+
+		<h3>Network Info</h3>
+        <span class="info">Nick, AltNick, Ident, RealName, BindHost can be left empty to use the value from the user.</span>
+		<div class="sectionbg">
+			<div class="sectionbody">
+				<? IF !Edit ?>
+				<div class="subsection">
+					<div class="inputlabel">Network Name:</div>
+					<input type="text" name="network" value="<? VAR Name ?>" class="half" maxlength="128"
+						   title="The name of the IRC network." />
+					</div>
+				<? ENDIF ?>
+
+            	<div class="subsection">
+					<div class="inputlabel">Nickname:</div>
+					<input type="text" name="nick" value="<? VAR Nick ?>" class="half" maxlength="128"
+						   title="Your nickname on IRC." />
+				</div>
+				<div class="subsection">
+					<div class="inputlabel">Alt. Nickname:</div>
+					<input type="text" name="altnick" value="<? VAR AltNick ?>" class="half" maxlength="128"
+						   title="Your secondary nickname, if the first is not available on IRC." />
+				</div>
+				<div style="clear: both;"></div>
+				<div class="subsection">
+					<div class="inputlabel">Ident:</div>
+					<input type="text" name="ident" value="<? VAR Ident ?>" class="half" maxlength="128"
+						   title="Your ident." />
+				</div>
+                <div class="subsection">
+					<div class="inputlabel">Realname:</div>
+					<input type="text" name="realname" value="<? VAR RealName ?>" class="full" maxlength="256"
+						   title="Your real name." />
+				</div>
+
+				<? IF BindHostEdit ?>
+				<div class="subsection">
+					<div class="inputlabel">BindHost:</div>
+					<? IF BindHostLoop ?>
+						<select name="bindhost">
+							<option value="">- Default -</option>
+							<? LOOP BindHostLoop ?><option value="<? VAR BindHost ?>"<? IF Checked ?> selected="selected"<? ENDIF ?>><? VAR BindHost ?></option><? ENDLOOP ?>
+						</select>
+					<? ELSE ?>
+						<input type="text" name="bindhost" value="<? VAR BindHost ?>"/>
+					<? ENDIF ?>
+				</div>
+				<div style="clear: both;"></div>
+				<? ENDIF ?>
+
+				<div class="subsection">
+					<div class="inputlabel">Active:</div>
+					<div class="checkbox"><input type="checkbox" name="doconnect" id="doconnect_checkbox"<? IF IRCConnectEnabled ?> checked="checked"<? ENDIF ?> />
+						<label for="doconnect_checkbox">Connect to IRC &amp; automatically re-connect</label></div>
+				</div>
+
+				<div class="subsection half">
+					<div class="inputlabel">Servers of this IRC network:</div>
+					<div><textarea name="servers" cols="70" rows="5"><? LOOP ServerLoop ?><? VAR Server ?>
+<? ENDLOOP ?>
+</textarea></div>
+					<br /><span class="info">One server per line, "host [[+]port] [password]", + means SSL</span>
+				</div>
+
+				<div class="subsection">
+					<div class="inputlabel">Flood protection:</div>
+					<div class="checkbox">
+						<input type="checkbox" name="floodprotection" id="floodprotection_checkbox"
+							   title="You might enable the flood protection. This prevents `excess flood' errors, which occur, when your IRC bot is command flooded or spammed."
+							onchange="floodprotection_change();"
+							<? IF FloodProtection ?>checked="checked"<? ENDIF ?> />
+						<label for="floodprotection_checkbox">Enabled</label>
+					</div>
+				</div>
+				<div class="subsection">
+					<div class="inputlabel">Flood protection rate:</div>
+					<input type="number" name="floodrate" min="0.3" step="0.05" id="floodrate"
+						   title="The number of seconds per line."
+						<? IF FloodProtection ?> value="<? VAR FloodRate ?>" <? ELSE ?> value="1.00" disabled="disabled" <? ENDIF ?>
+					/> seconds per line
+				</div>
+
+				<div class="subsection">
+					<div class="inputlabel">Flood protection burst:</div>
+					<input type="number" name="floodburst" min="1" id="floodburst"
+						   title="Defines the number of lines, which can be sent immediately."
+						<? IF FloodProtection ?> value="<? VAR FloodBurst ?>" <? ELSE ?> value="4" disabled="disabled" <? ENDIF ?>
+					/> lines can be sent immediately
+				</div>
+				<script type="text/javascript">floodprotection_change();</script>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Channels</h3>
+		<? IF !Edit ?>
+		<span class="info">You will be able to add + modify channels here after you created the network.</span><br />
+		<? ELSE ?>
+		<div class="sectionbg">
+			<div class="sectionbody">
+				<table>
+					<thead>
+					<tr>
+						<td>[<a href="addchan?user=<? VAR Username ESC=URL ?>&amp;network=<? VAR Name ESC=URL ?>">Add</a>]</td>
+				<? IF ChannelLoop ?>
+						<td>Save</td>
+						<td>Name</td>
+						<td>CurModes</td>
+						<td>DefModes</td>
+						<td>BufferCount</td>
+						<td>Options</td>
+				<? ELSE ?>
+						<td>&lt;- Add a channel (opens in same page)</td>
+				<? ENDIF ?>
+					</tr>
+					</thead>
+
+					<tbody>
+			<? LOOP ChannelLoop SORTASC=Name ?>
+					<tr class="<? IF __EVEN__ ?>evenrow<? ELSE ?>oddrow<? ENDIF ?>">
+						<td>
+							<input type="hidden" name="channel" value="<? VAR Name ?>" />
+							[<a href="editchan?user=<? VAR Username ESC=URL ?>&amp;network=<? VAR Network ESC=URL ?>&amp;name=<? VAR Name ESC=URL ?>">Edit</a>] [<a href="delchan?user=<? VAR Username ESC=URL ?>&amp;network=<? VAR Network ESC=URL ?>&amp;name=<? VAR Name ESC=URL ?>">Del</a>]
+						</td>
+						<td><input type="checkbox" name="save_<? VAR Name ?>"<? IF InConfig ?> checked="checked"<? ENDIF ?> /></td>
+						<td><? VAR Name ?></td>
+						<td><? VAR CurModes ?></td>
+						<td><? VAR DefModes ?></td>
+						<td><? VAR BufferCount ?></td>
+						<td><? VAR Options ?></td>
+					</tr>
+			<? ENDLOOP ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<? ENDIF ?>
+	</div>
+
+	<div class="section">
+		<h3>Modules</h3>
+		<div class="sectionbg">
+			<div class="sectionbody">
+				<table>
+					<thead>
+					<tr>
+						<td>Name</td>
+						<td>Arguments</td>
+						<td>Description</td>
+					</tr>
+					</thead>
+					<tbody>
+
+				<? LOOP ModuleLoop ?>
+					<tr class="<? IF __EVEN__ ?>evenrow<? ELSE ?>oddrow<? ENDIF ?>">
+						<td class="mod_name">
+							<input type="checkbox" name="loadmod" id="lm_<? VAR Name ?>" value="<? VAR Name ?>"<? IF Checked ?> checked="checked"<? ENDIF ?><? IF Disabled ?> disabled="disabled"<? ENDIF ?> /><label for="lm_<? VAR Name ?>"> <? IF Wiki ?><a href="http://wiki.znc.in/<? VAR Wiki ?>"><? VAR Name ?></a> <? ELSE ?> <? VAR Name ?> <? ENDIF ?></label>
+						</td>
+						<td class="mod_args">
+							<? IF Disabled ?>
+							<? VAR Args ?>
+							<? ELSE ?>
+							<input class="third" type="text" name="modargs_<? VAR Name ?>" value="<? VAR Args ?>"
+							<? IF !HasArgs ?> disabled="disabled"<? ENDIF ?>
+							<? IF ArgsHelpText ?> title="<? VAR ArgsHelpText ?>"<? ENDIF ?> />
+							<? ENDIF ?>
+						</td>
+						<td class="mod_descr"><? VAR Description ?></td>
+					</tr>
+				<? ENDLOOP ?>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<? LOOP EmbeddedModuleLoop ?>
+		<? IF Embed ?>
+		<div class="section">
+			<h3>Module <? VAR ModName ?></h3>
+			<? INC *Embed ?>
+		</div>
+		<? ENDIF ?>
+	<? ENDLOOP ?>
+
+	<div class="submitline">
+		<input type="submit" value="<? IF Edit ?>Save<? ELSE ?>Add Network<? ENDIF ?>" />
+	</div>
+</form>
+
+<? INC Footer.tmpl ?>

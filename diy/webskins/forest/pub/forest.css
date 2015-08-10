@@ -1,0 +1,25 @@
+h3 {
+	background-color: #049712;
+}
+
+table thead td {
+	background-color: #007700;
+}
+
+#banner {
+	background-image: url('forest-header.png');
+}
+
+#menu .modtitle.active,
+#menu .topitem.active {
+	background-color: #049712;
+	font-weight: bold;
+}
+
+#footerbar {
+	background-color: #049712;
+}
+
+a {
+	color: #049712;
+}

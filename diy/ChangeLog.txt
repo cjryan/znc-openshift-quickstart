@@ -1,0 +1,67 @@
+Changes since ZNC 1.2
+
+This release is done to fix a denial of service attack through webadmin. After authentication, users can crash ZNC through a use-after-delete.
+Additionally, a number of fixes and nice, low-risk additions from our development branch is included.
+
+In detail, these are:
+
+
+New
+===
+
+* Reduce users' confusion during --makeconf.
+* Warn people that making ZNC listen on port 6667 might cause problems with some web browsers.
+* Always generate a SSL certificate during --makeconf.
+* Stop asking for a bind host / listen host in --makeconf. People who don't want wildcard binds can configure this later.
+* Don't create ~/.znc/modules if it doesn't exist yet.
+
+
+Fixes
+=====
+
+* Fix a use-after-delete in webadmin.
+* Honor the BindHost whitelist when configuring BindHosts in controlpanel module.
+* Ignore trailing whitespace in <code>/znc jump</code> arguments.
+* Change formatting of startup messages so that we never overwrite part of a message when printing the result of an action.
+* Fix configure on non-bash shells.
+* Send the correct error for invalid CAP subcommands.
+* Make sure znc-buildmod includes zncconfig.h at the beginning of module code.
+
+
+Modules
+=======
+
+* Make awaystore automatically call the Ping command when the Back command is used.
+* Add SSL information and port number to servers in network list in webadmin.
+* Disable password autocompletion when editing users in webadmin.
+* Make nickserv  module work on StarChat.net and ircline.org.
+* Remove accidental timeout for run commands in shell module.
+* certauth now uses a case insensitive comparison on hexadecimal fingerprints.
+
+controlpanel
+------------
+
+* Correct double output.
+* Add support for the MaxNetworks global setting.
+* Add support for the BindHost per-network setting.
+
+modperl and modpython
+---------------------
+
+* Make <code>OnAddNetwork</code> and <code>OnDeleteNetwork</code> module hooks work.
+* Don't create .pyc files during compilation.
+* Fix modperl on MacOS X. Twice.
+* Require at least SWIG 2.0.12 on MacOS X.
+
+
+Internal
+========
+
+* Don't redefine _FORTIFY_SOURCE if compiler already defines it.
+* Cache list of available timezones instead of re-reading it whenever it is needed.
+* Improve const-correctness.
+* Fix various low-priority compiler warnings.
+* Change in-memory storage format for ServerThrottle.
+* Use native API on Win32 to replace a file with another file.
+* Add src/version.cpp to .gitignore.
+

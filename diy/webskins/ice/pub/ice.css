@@ -1,0 +1,386 @@
+@charset "UTF-8";
+
+* {
+	font-family: Tahoma, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 99%;
+}
+
+body {
+	background: url(pagebg.gif) top repeat-x #0C1833 fixed;
+	color: #fff;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+	background-color: #4C688A;
+	min-height: 90%;
+	margin-top: 1em;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#content {
+	width: 614px;
+	margin-left: 4px;
+}
+
+h1 {
+	background-image: url(linkbg.jpg);
+	height: 34px;
+	line-height: 34px;
+	font-size: 23px;
+	padding: 0 10px;
+	color: #030406;
+	text-shadow: #fff 0 0 6px;
+	border-bottom: 1px solid #030406;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-radius-topleft: 5px;
+	border-radius-topright: 5px;
+}
+
+body, textarea, input, select, td, button {
+	font-size: 13px;
+}
+
+textarea, input {
+	padding: 1px;
+}
+
+h2 {
+	margin: 10px;
+}
+
+a {
+	text-decoration: underline;
+	color: #f90;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+table a, table a:visited, table a:hover, table a:active { color: #000; }
+
+table {
+	color: #000;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border-spacing: 0;
+	border: 1px solid #000;
+	margin: 10px;
+}
+
+td {
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
+	padding: 4px;
+}
+
+table thead {
+	background: url(linkbg.jpg) 0px -30px repeat-x #369;
+	color: #fff;
+	font-weight: bold;
+}
+
+thead td {
+	font-size: 13px;
+	border-bottom: 1px solid #000;
+	min-width: 35px;
+}
+
+th {
+	text-align: left;
+	padding: 4px;
+	border-top: 1px solid #000;
+}
+
+tr td:first-child {
+	border-left: none;
+}
+
+tr:first-child th {
+	border-top: none;
+}
+
+table tr:first-child td {
+	border-top: none;
+}
+
+.oddrow {
+	background-color: #ccc;
+}
+
+.evenrow {
+	background-color: #ddd;
+}
+
+input.full, textarea.full,
+.full input, .full textarea {
+	width: 560px;
+}
+
+input.twothird, textarea.twothird,
+.twothird input, .twothird textarea {
+	width: 375px;
+}
+
+input.half, textarea.half,
+.half input, .half textarea {
+	width: 267px;
+}
+
+input.third, textarea.third,
+.third input, .third textarea {
+	width: 125px;
+}
+
+.subsection div.checkbox {
+	padding: 9px 0 0 3px;
+}
+
+.subsection div.checkbox input {
+	min-width: 0;
+	display: block;
+	margin-right: 5px;
+	float: left;
+}
+
+textarea {
+	height: 90px;
+}
+
+#main {
+	padding: 10px;
+	margin-top: -20px;
+}
+
+#banner {
+	text-align: center;
+	padding: 5px 10px;
+}
+
+#tag {
+	font-size: 11px;
+	color: #f90;
+	text-align: center;
+	padding: 5px;
+}
+
+#menu {
+	position: absolute;
+	margin-left: 619px;
+	width: 170px;
+}
+
+ul.nav, ul.nav li, ul.nav ul {
+	list-style: none;
+}
+
+ul.nav li.topitem {
+	margin-right: 55px;
+}
+
+ul.nav li, ul.nav li.topitem .title {
+	display: block;
+	width: 170px;
+}
+
+ul.nav li.topitem .title {
+	font-size: 11px;
+	text-align: center;
+	height: 23px;
+	line-height: 23px;
+}
+
+ul.nav li.topitem, ul.nav li.subitem, ul.nav li.modtitle {
+	border: 1px solid #000;
+	border-top: none;
+}
+
+ul.nav li:first-child {
+	border-top: 1px solid #000;
+}
+
+ul.nav li.parent {
+	background: none;
+	border: none;
+}
+
+ul.nav li.subitem {
+	font-size: 90%;
+}
+
+#menu a {
+	font-size: 12px;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	padding-left: 10px;
+	text-decoration: none;
+	background: url(linkbg.jpg) 0px 0px repeat-x;
+}
+
+#menu a:hover {
+	color: #000;
+	background-position: 0px -30px;
+}
+
+#menu .topitem a, #menu .modtitle a {
+	font-weight: bold;
+}
+
+#menu .subitem a {
+	font-weight: normal;
+	padding-left: 20px;
+}
+
+ul.nav li.active a:before {
+	content: "» ";
+}
+
+.inputlabel {
+	font-size: small;
+	font-weight: bold;
+	color: #000;
+}
+
+.section {
+	clear: both;
+	padding-bottom: 20px;
+	width: 600px;
+}
+
+.subsection {
+	float: left;
+	margin: 5px 10px;
+}
+
+h3 {
+	float: left;
+	white-space: nowrap;
+	background: url(linkbg.jpg) 0px 0px repeat-x #336;
+	color: #eee;
+	font-size: 13px;
+	font-weight: bold;
+	border: 1px solid #000;
+	padding: 2px 7px;
+	margin: 0 15px -12px 8px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.sectionbg {
+	clear: both;
+	background-color: #ddd;
+	color: #000;
+	border: 2px solid #000;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.sectionbody {
+	margin-top: 15px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.subsection input, .subsection textarea, .subsection select {
+	display: block;
+	margin: 3px 0 0 1px;
+}
+
+.info {
+	font-size: 11px;
+	font-style: italic;
+	display: block;
+}
+
+.section .info {
+	float: left;
+}
+
+.subsection .info {
+	float: none;
+	margin: -1em 0 3px 0;
+}
+
+td.mod_name,
+.checkboxandlabel {
+	white-space: nowrap;
+}
+
+.lotsofcheckboxes {
+	padding: 0 0 0 1em;
+}
+
+.lotsofcheckboxes .checkboxandlabel {
+	display: block;
+	float: left;
+	width: 200px;
+	margin-top: 5px;
+}
+
+div.submitline {
+	margin-top: 1em;
+}
+
+.submitline input {
+	width: 100px;
+}
+
+#infobar {
+	text-align: right;
+	clear: both;
+	position: relative;
+	top: -22px;
+	margin-left: 380px;
+	color: #ddd;
+	padding: 0 5px 3px 0;
+}
+
+#infobar_ident, .logoutbox {
+	font-size: 11px;
+}
+
+.logoutbox a {
+	color: #ddd;
+}
+
+.loginbox {
+	padding: 13px 0 0 0;
+}
+
+.successbar,
+.errorbar {
+	background-color: #900;
+	padding: 5px 10px;
+	font-weight: bold;
+	color: #fff;
+	height: 23px;
+	line-height: 23px;
+}
+
+.successbar {
+	background-color: #070;
+}
+
+.errorbar + #infobar {
+	top: -58px;
+}
+
+#breadcrumb {
+	margin-bottom: 1.5em;
+}
+
+.textsection p {
+	margin-bottom: 0.7em;
+}
+

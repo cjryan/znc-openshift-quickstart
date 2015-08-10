@@ -1,0 +1,49 @@
+<? INC Header.tmpl ?>
+
+<form method="post" action="<? VAR ModPath ?>addnote">
+	<? INC _csrf_check.tmpl ?>
+	<div class="section">
+		<h3>Add A Note</h3>
+		<div class="sectionbg">
+			<div class="sectionbody">
+				<div class="subsection third">
+					<div class="inputlabel">Key:</div>
+					<input type="text" name="key" size="8" />
+				</div>
+				<div class="subsection full">
+					<div class="inputlabel">Note:</div>
+					<input type="text" name="note" size="40" />
+				</div>
+				<div class="subsection submitline">
+					<input type="submit" name="add" value="Add Note" />
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<? IF !NotesLoop ?>
+<p>You have no notes to display.</p>
+<? ELSE ?>
+
+<table class="data">
+	<thead>
+		<tr>
+			<td style="width: 10px;"></td>
+			<td>Key</td>
+			<td>Note</td>
+		</tr>
+	</thead>
+	<tbody>
+		<? LOOP NotesLoop ?>
+		<tr class="<? IF __EVEN__ ?>evenrow<? ELSE ?>oddrow<? ENDIF ?>">
+			<td><a href="<? VAR ModPath TOP ?>delnote?key=<? VAR Key ESC=URL,HTML ?>"><img src="<? VAR ModFilesPath TOP ?>trash.gif" alt="[del]" /></a></td>
+			<td><? VAR Key ?></td>
+			<td><? VAR Note ?></td>
+		</tr>
+		<? ENDLOOP ?>
+	</tbody>
+</table>
+<? ENDIF ?>
+
+<? INC Footer.tmpl ?>

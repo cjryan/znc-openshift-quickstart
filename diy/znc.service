@@ -1,0 +1,10 @@
+[Unit]
+Description=ZNC, an advanced IRC bouncer
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/znc -f
+User=znc
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,407 @@
+@charset "UTF-8";
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0;
+	margin: 10px 0;
+	background-color: #444;
+	font-family: verdana;
+	font-size: 12px;
+	color: #fff;
+}
+
+img {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+/* TABLES */
+
+table {
+	font-size: 12px;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.section table {
+	/* we can't selectively remove the border from left,right and bottom
+		so we make it look consistent at least */
+	border-top: 2px solid black;
+}
+
+.subsection table {
+	margin-bottom: 15px;
+	border-top: 1px solid black;
+}
+
+table thead td {
+	background-color: #EC8E00;
+	color: #000;
+	font-weight: bold;
+	padding: 6px;
+}
+
+table td, table th {
+	padding: 4px;
+	border: 1px solid #000;
+}
+
+table th {
+	text-align: left;
+}
+
+td.mod_name {
+	white-space: nowrap;
+}
+
+.evenrow {
+	background-color: #555;
+}
+
+.oddrow {
+	background-color: #444;
+}
+
+/* !TABLES */
+
+/* SECTIONS */
+
+.section {
+	border: 1px solid #000;
+	padding: 0;
+	margin: 0 0 2em 0;
+}
+
+h3 {
+	margin: 0;
+	padding: 5px;
+	background-color: #D49712;
+	color: #000;
+	font-weight: bold;
+}
+
+.sectionbody {
+	padding: 0;
+	margin: 0;
+}
+
+.subsection {
+	clear: both;
+	border-top: 1px solid #000;
+	margin: 0;
+	padding: 8px 10px 5px 8px;
+}
+
+.subsection div {
+	display: inline-block;
+	padding-bottom: 3px;
+}
+
+.subsection .inputlabel {
+	width: 150px;
+	vertical-align: top;
+}
+
+.section .info {
+	display: block;
+	padding: 5px 8px;
+	font-style: italic;
+	background-color: #777;
+	border-top: 1px solid #000;
+	color: #000;
+}
+
+.subsection .info {
+	margin: 2px 0 2px 0;
+	padding: 0;
+	font-style: normal;
+	font-size: 80%;
+	background: transparent;
+	border: none;
+	color: #fff;
+}
+
+/* !SECTIONS */
+
+/* FORMS */
+
+input, select, textarea {
+	font-family: verdana;
+	font-size: 12px;
+	color: #000000;
+	border: 1px solid #000000;
+	background-color: #999;
+	padding: 2px;
+}
+
+textarea {
+	height: 90px;
+}
+
+.submitline input {
+	width: 180px;
+}
+
+input.full, textarea.full,
+.full input, .full textarea {
+	width: 430px;
+}
+
+input.twothird, textarea.twothird,
+.twothird input, .twothird textarea {
+	width: 370px;
+}
+
+input.half, textarea.half,
+.half input, .half textarea {
+	width: 280px;
+}
+
+input.third, textarea.third,
+.third input, .third textarea {
+	width: 100px;
+}
+
+.checkboxandlabel {
+	white-space: nowrap;
+}
+
+.section .lotsofcheckboxes {
+	margin: 0.5em 5px 1em 10px;
+	overflow: hidden;
+}
+
+.lotsofcheckboxes .checkboxandlabel {
+	display: block;
+	float: left;
+	width: 200px;
+	margin-top: 0.5em;
+}
+
+/* !FORMS */
+
+.nowrap {
+	white-space: nowrap;
+}
+
+/* LINKS */
+
+a {
+	color: #EC8E00;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+table thead td a {
+	color: #000;
+	text-decoration: underline;
+}
+
+table thead td a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+#menu a, #logoutbox a {
+	color: #000;
+}
+
+/* !LINKS */
+
+#wrapper {
+	width: 800px;
+	border: 1px solid #000;
+	background-color: #333; /* for the menu column */
+	margin: 0 auto;
+}
+
+#banner {
+	background-image: url('clouds-header.jpg');
+	padding: 0;
+	border-bottom: 1px solid #000000;
+	height: 100px;
+	width: 800px;
+	text-align: right;
+	font-weight: bold;
+	font-size: 13px;
+	position: relative;
+}
+
+#banner p {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+}
+
+#infobar {
+	width: 800px;
+	height: 24px;
+	line-height: 24px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+#infobar_ident {
+	float: left;
+	padding-left: 5px;
+}
+
+#infobar .loginbox,
+#infobar .logoutbox {
+	text-align: right;
+	padding-right: 5px;
+	border-left: 1px solid #000000;
+	width: 270px;
+	float: right;
+}
+
+#infobar .logoutbox {
+	text-align: center;
+	width: 100px;
+}
+
+#infobar .loginbox input {
+	width: 60px;
+}
+
+#infobar .loginbox input.submit {
+	width: 50px;
+	padding: 1px;
+}
+
+#infobar_ident .user_name {
+	font-style: italic;
+}
+
+.successbar,
+.errorbar {
+	width: 790px;
+	height: 24px;
+	line-height: 24px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	background-color: #900;
+	padding: 2px 5px;
+	font-weight: bold;
+}
+
+.successbar {
+	background-color: #070;
+}
+
+#subpage {
+	padding: 10px;
+}
+
+#content {
+	float: left;
+	width: 640px;
+	padding: 0 0 1.5em 0;
+	background-color: #444;
+}
+
+/* MENU */
+
+#menu {
+	float: left;
+	background-color: #333;
+	width: 160px;
+	padding-bottom: 1px;
+}
+
+#menu ul, #menu li {
+	list-style: none;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#menu li.parent span.title {
+	display: block;
+	text-align: left;
+	padding-left: 10px;
+	background-color: #333;
+	font-weight: bold;
+}
+
+#menu .title,
+#menu .topitem,
+#menu .modtitle,
+#menu .subitem {
+	text-align: center;
+	padding: 8px 5px;
+	background-color: #777;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+#menu .parent {
+	padding: 0;
+	border: none;
+}
+
+#menu .modtitle.active,
+#menu .topitem.active {
+	background-color: #D49712;
+	font-weight: bold;
+}
+
+#menu .subitem {
+	text-align: left;
+	padding: 3px 5px 3px 10px;
+	background-color: #999;
+}
+
+#menu .subitem.active {
+	font-weight: bold;
+}
+
+#menu .subitem.active a:before {
+	content: "» ";
+}
+
+#menu .subitem.active a:after {
+	content: " «";
+}
+
+#menu .subitem.active a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+/* !MENU */
+
+#footerbar {
+	clear: both;
+	background-color: #D49712;
+	border-top: 1px solid #000000;
+	height: 20px;
+	line-height: 20px;
+	text-align: right;
+	padding-right: 5px;
+	font-size: 80%;
+	color: #000;
+}
+
+#footerbar a {
+	color: #000;
+}
+
+#breadcrumb {
+	margin: 5px 10px;
+	padding: 5px 1px;
+	border-bottom: 1px solid #000;
+}
+
+.textsection p {
+	margin-bottom: 0.7em;
+}
+
