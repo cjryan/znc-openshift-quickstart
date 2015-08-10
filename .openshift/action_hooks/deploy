@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd $OPENSHIFT_REPO_DIR/diy
+./configure --prefix="$HOME/app-root/data/.local"
+make
+make install
