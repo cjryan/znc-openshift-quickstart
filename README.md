@@ -40,9 +40,24 @@ Now armed with this information, we are ready to configure ZNC for first use. Fi
 `cd $OPENSHIFT_DATA_DIR/.local`
 
 Make a directory for the configs: `mkdir configs`
-`
+
 Run the znc wizard for generating a config. This will ask a series of questions, where the default answers are mostly fine. Pay particular attention to the port and ip address lines:  `./bin/znc --makeconf`
 
 For the port, OpenShift listens on 8080 (it can be any port in that range, with a few exceptions, but let's use 8080 when the config wizard asks).
 
 The wizard, at the end, will complain that it is `Unable to open file, Please specify an alternate location (or "stdout" for displaying the config)`. We're going to use stdout, copy the text starting with `// WARNING` and ending with `</User>` using vim, add this to the configs dir we created above as `znc.conf`
+
+Before you save the file, add `Host = 127.10.10.1`, replacing `127.10.10.1` with whatever your `OPENSHIFT_DIY_IP` is from above. Then, save the file.
+
+Once you've done this, you're ready to run ZNC for the first time.
+
+### Running ZNC
+
+In the `$OPENSHIFT_DATA_DIR/.local` directory, run `./bin/znc --datadir .`
+
+This will then ick off znc, which if successful should report:
+
+`[ >> ] ok
+[ .. ] Forking into the background...
+[ >> ] [pid: 80928]
+[ ** ] ZNC 1.4 - http://znc.in`
