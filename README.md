@@ -55,9 +55,12 @@ Once you've done this, you're ready to run ZNC for the first time.
 
 In the `$OPENSHIFT_DATA_DIR/.local` directory, run `./bin/znc --datadir .`
 
-This will then ick off znc, which if successful should report:
+This will then start up znc, which if successful should report:
 
 `[ >> ] ok
+
 [ .. ] Forking into the background...
+
 [ >> ] [pid: 80928]
+
 [ ** ] ZNC 1.4 - http://znc.in`
