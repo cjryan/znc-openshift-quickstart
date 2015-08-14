@@ -64,3 +64,5 @@ This will then start up znc, which if successful should report:
 [ >> ] [pid: 80928]
 
 [ ** ] ZNC 1.4 - http://znc.in`
+
+Once this occurs, you can use your favorite IRC chat client to connect. The ZNC docs are particularly helpful in this regard. Also, you may need to port-forward your app to your local machine using 'rhc port-forward -a <your app name>'.
