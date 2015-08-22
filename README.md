@@ -66,3 +66,7 @@ This will then start up znc, which if successful should report:
 [ ** ] ZNC 1.4 - http://znc.in`
 
 Once this occurs, you can use your favorite IRC chat client to connect. The ZNC docs are particularly helpful in this regard. Also, you may need to port-forward your app to your local machine using 'rhc port-forward -a <your app name>'.
+
+### Connecting with a client
+
+ZNC provides several guides for popular IRC chat clients. For an excellent command line client, see [weechat](http://wiki.znc.in/Weechat)
