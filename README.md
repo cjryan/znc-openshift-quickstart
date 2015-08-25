@@ -1,6 +1,6 @@
 # ZNC for OpenShift
 
-ZNC is an IRC bouncer, which will allow you to connect to IRC servers. This quickstart will help you to deploy it seamlessly on the OpenShift platform.
+[ZNC](http://wiki.znc.in/ZNC) is an IRC bouncer, which will allow you to connect to IRC servers. This quickstart will help you to deploy it seamlessly on the OpenShift platform.
 
 ## Running ZNC on OpenShift
 
