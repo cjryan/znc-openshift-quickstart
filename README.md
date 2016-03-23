@@ -71,3 +71,5 @@ Once this occurs, you can use your favorite IRC chat client to connect. The ZNC 
 
 ZNC provides several guides for popular IRC chat clients. For an excellent command line client, see [weechat](http://wiki.znc.in/Weechat), or [Pidgin](http://wiki.znc.in/Pidgin)
 
+#### Konversation
+To connect with KDE's Konversation IRC client it is recommended to setup a new identity. In that identity change `Auto Identify` from `Standard NickServ` to `Server Password`. The password format for a non-ssl secured connection is `<username>:<password>`.
