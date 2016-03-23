@@ -1,6 +1,6 @@
 # ZNC for OpenShift
 
-ZNC is an IRC bouncer, which will allow you to connect to IRC servers. This quickstart will help you to deploy it seamlessly on the OpenShift platform.
+[ZNC](http://wiki.znc.in/ZNC) is an IRC bouncer, which will allow you to connect to IRC servers. This quickstart will help you to deploy it seamlessly on the OpenShift platform.
 
 ## Running ZNC on OpenShift
 
@@ -67,4 +67,7 @@ This will then start up znc, which if successful should report:
 
 Once this occurs, you can use your favorite IRC chat client to connect. The ZNC docs are particularly helpful in this regard. Also, you may need to port-forward your app to your local machine using 'rhc port-forward -a <your app name>'.
 
-[Pidgin](http://wiki.znc.in/Pidgin)
+### Connecting with a client
+
+ZNC provides several guides for popular IRC chat clients. For an excellent command line client, see [weechat](http://wiki.znc.in/Weechat), or [Pidgin](http://wiki.znc.in/Pidgin)
+
