@@ -15,7 +15,7 @@ First, create a diy application:
 
 `git pull -s recursive -X theirs upstream master`
 
-`git push`
+`git push --force`
 
 The initial git push (deployment) takes some time, as the code is compiled on the gear. Once this is done, you'll need to collect some information to setup ZNC for the first time.
 
