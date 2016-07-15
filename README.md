@@ -67,6 +67,8 @@ This will then start up znc, which if successful should report:
 
 Once this occurs, you can use your favorite IRC chat client to connect. The ZNC docs are particularly helpful in this regard. Also, you may need to port-forward your app to your local machine using 'rhc port-forward -a <your app name>'.
 
+Until the next version of OpenShift is available (shortly), you can also connect to the webconsole of znc over the portforwarded ip address, e.g. localhost:8181.
+
 ### Connecting with a client
 
 ZNC provides several guides for popular IRC chat clients. For an excellent command line client, see [weechat](http://wiki.znc.in/Weechat), or [Pidgin](http://wiki.znc.in/Pidgin)
